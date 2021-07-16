@@ -33,7 +33,7 @@ public class PathMarker : MonoBehaviour
         }
         else
         {
-            return this.location.Equals(((PathMarker)obj).location);
+            return this.location.Equals(((PathMarker)obj).location);  // seems like a bug to me. Should be (location.Equals((MapLocation)obj)).
         }
     }
 

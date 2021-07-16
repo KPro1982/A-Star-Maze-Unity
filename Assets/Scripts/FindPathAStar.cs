@@ -71,7 +71,7 @@ public class FindPathAStar : MonoBehaviour
             return;
         }
 
-        foreach (MapLocation dir in maze.directions)
+        foreach (MapLocation dir  in maze.directions)
         {
             MapLocation neighbor = dir + thisNode.location;
             if (maze.map[neighbor.x, neighbor.z] == 1) continue;
@@ -90,7 +90,7 @@ public class FindPathAStar : MonoBehaviour
             TextMesh[] values = pathBlock.GetComponentsInChildren<TextMesh>();
             values[0].text = "G: " + G.ToString("0.00");
             values[1].text = "H: " + H.ToString("0.00");
-            values[2].text = "H: " + F.ToString("0.00");
+            values[2].text = "F: " + F.ToString("0.00");
 
             if (!UpdateMarker(neighbor, G, H, F, thisNode))
             {
