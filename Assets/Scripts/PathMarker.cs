@@ -27,13 +27,13 @@ public class PathMarker : MonoBehaviour
     
     public override bool Equals(object obj)
     {
-        if ((obj == null) || !GetType().Equals(obj.GetType()))
+        if ((obj == null) || !this.GetType().Equals(obj.GetType()))
         {
             return false;
         }
         else
         {
-            return this.location.Equals((MapLocation)obj);
+            return this.location.Equals(((PathMarker)obj).location);
         }
     }
 
