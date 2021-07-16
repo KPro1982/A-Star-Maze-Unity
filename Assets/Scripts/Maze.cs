@@ -35,7 +35,6 @@ public class Maze : MonoBehaviour
     public byte[,] map;
     public int scale = 6;
 
-    // Start is called before the first frame update
     void Start()
     {
         InitialiseMap();
@@ -56,11 +55,11 @@ public class Maze : MonoBehaviour
     public virtual void Generate()
     {
         for (int z = 0; z < depth; z++)
-            for (int x = 0; x < width; x++)
-            {
-               if(Random.Range(0,100) < 50)
-                 map[x, z] = 0;     //1 = wall  0 = corridor
-            }
+        for (int x = 0; x < width; x++)
+        {
+            if (Random.Range(0, 100) < 50)
+                map[x, z] = 0; //1 = wall  0 = corridor
+        }
     }
 
     void DrawMap()
