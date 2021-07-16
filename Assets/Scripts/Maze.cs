@@ -34,6 +34,7 @@ public class Maze : MonoBehaviour
     public int depth = 30; //z length
     public byte[,] map;
     public int scale = 6;
+    public int Extraspace = 50;
 
     void Start()
     {

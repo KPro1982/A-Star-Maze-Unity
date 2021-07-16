@@ -441,6 +441,7 @@ MonoBehaviour:
   width: 15
   depth: 15
   scale: 6
+  Extraspace: 100
 --- !u!850595691 &1160735724
 LightingSettings:
   m_ObjectHideFlags: 0
