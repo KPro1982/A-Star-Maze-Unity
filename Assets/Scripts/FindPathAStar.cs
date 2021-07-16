@@ -139,10 +139,37 @@ public class FindPathAStar : MonoBehaviour
     {
     }
 
+    void GetPath()
+    {
+        RemoveAllMarkers();
+        open.Clear();
+        InstantiateMarker(startNode, start);
+        InstantiateMarker(lastPos, end);
+        
+        PathMarker begin = lastPos;
+        PathMarker nextPos = begin.parent;
+        while (!nextPos.Equals(startNode))
+        {
+            var pathBlock = InstantiateMarker(nextPos, pathP);
+            
+            open.Add(nextPos);
+            nextPos = nextPos.parent;
+
+        } 
+    }
+
+    private GameObject InstantiateMarker(PathMarker marker, GameObject prefab)
+    {
+        GameObject pathBlock = Instantiate(prefab,
+            new Vector3(marker.location.x * maze.scale, 0, marker.location.z * maze.scale),
+            Quaternion.identity);
+        return pathBlock;
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P)) BeginSearch();
-        if (Input.GetKeyDown(KeyCode.C)) Search(lastPos);
+        if (Input.GetKeyDown(KeyCode.C) && !done) Search(lastPos);
+        if (Input.GetKeyDown(KeyCode.M)) GetPath();
     }
 }
